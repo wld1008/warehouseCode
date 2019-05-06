@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://www.mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.pastry.mapping.UserMapper">
+    <resultMap id="userMap" type="com.pastry.pojo.UserDO">
+        <id column="id" property="id" javaType="java.lang.Integer"></id>
+        <result column="user_name" property="userName" javaType="java.lang.String"></result>
+        <result column="password" property="password" javaType="java.lang.String"></result>
+        <result column="age" property="age" javaType="java.lang.Integer"></result>
+        <result column="email" property="email" javaType="java.lang.String"></result>
+        <result column="create_time" property="createTime" javaType="java.util.Date"></result>
+        <result column="sex" property="sex" javaType="java.lang.Integer"></result>
+        <result column="mobile" property="mobile" javaType="java.lang.String"></result>
+    </resultMap>
+
+
+    <select id="getUser" resultMap="userMap">
+        select id, user_name , password, age, email, create_time, sex, mobile
+        from user
+        limit #{start} , #{limit}
+    </select>
+    <select id="getCount" resultType="int">
+        select count(*) from user
+    </select>
+    <delete id="deleteUser" parameterType="Integer">
+        delete from user where id in
+        <foreach collection ="ids" item="userId"  open= "(" separator="," close =")">
+            #{userId}
+        </foreach>
+    </delete>
+
+    <insert id="insert" parameterType="com.pastry.pojo.UserDO">
+        insert into user (user_name, password, age, email, create_time,mobile , sex)
+        values (#{userName}, #{password}, #{age}, #{email}, NOW(), #{mobile}, #{sex})
+    </insert>
+</mapper>

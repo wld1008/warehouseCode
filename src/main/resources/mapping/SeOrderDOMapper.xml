@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ssm.test.dao.SeOrderDOMapper" >
+  <resultMap id="BaseResultMap" type="com.ssm.test.model.SeOrderDO" >
+    <constructor >
+      <idArg column="id" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="order_code" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="product_code" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="buyer_name" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="buyer_mobile" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="product_num" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="buyer_city" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="buyer_ province" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="county" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="create_time" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+      <arg column="update_time" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, order_code, product_code, buyer_name, buyer_mobile, product_num, buyer_city, 
+    "buyer_ province", county, create_time, update_time
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from se_order
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from se_order
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.ssm.test.model.SeOrderDO" >
+    insert into se_order (id, order_code, product_code, 
+      buyer_name, buyer_mobile, product_num, 
+      buyer_city, "buyer_ province", county, 
+      create_time, update_time)
+    values (#{id,jdbcType=INTEGER}, #{orderCode,jdbcType=VARCHAR}, #{productCode,jdbcType=VARCHAR}, 
+      #{buyerName,jdbcType=VARCHAR}, #{buyerMobile,jdbcType=VARCHAR}, #{productNum,jdbcType=INTEGER}, 
+      #{buyerCity,jdbcType=VARCHAR}, #{buyerProvince,jdbcType=VARCHAR}, #{county,jdbcType=VARCHAR}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.ssm.test.model.SeOrderDO" >
+    insert into se_order
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="orderCode != null" >
+        order_code,
+      </if>
+      <if test="productCode != null" >
+        product_code,
+      </if>
+      <if test="buyerName != null" >
+        buyer_name,
+      </if>
+      <if test="buyerMobile != null" >
+        buyer_mobile,
+      </if>
+      <if test="productNum != null" >
+        product_num,
+      </if>
+      <if test="buyerCity != null" >
+        buyer_city,
+      </if>
+      <if test="buyerProvince != null" >
+        "buyer_ province",
+      </if>
+      <if test="county != null" >
+        county,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="updateTime != null" >
+        update_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="orderCode != null" >
+        #{orderCode,jdbcType=VARCHAR},
+      </if>
+      <if test="productCode != null" >
+        #{productCode,jdbcType=VARCHAR},
+      </if>
+      <if test="buyerName != null" >
+        #{buyerName,jdbcType=VARCHAR},
+      </if>
+      <if test="buyerMobile != null" >
+        #{buyerMobile,jdbcType=VARCHAR},
+      </if>
+      <if test="productNum != null" >
+        #{productNum,jdbcType=INTEGER},
+      </if>
+      <if test="buyerCity != null" >
+        #{buyerCity,jdbcType=VARCHAR},
+      </if>
+      <if test="buyerProvince != null" >
+        #{buyerProvince,jdbcType=VARCHAR},
+      </if>
+      <if test="county != null" >
+        #{county,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null" >
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.ssm.test.model.SeOrderDO" >
+    update se_order
+    <set >
+      <if test="orderCode != null" >
+        order_code = #{orderCode,jdbcType=VARCHAR},
+      </if>
+      <if test="productCode != null" >
+        product_code = #{productCode,jdbcType=VARCHAR},
+      </if>
+      <if test="buyerName != null" >
+        buyer_name = #{buyerName,jdbcType=VARCHAR},
+      </if>
+      <if test="buyerMobile != null" >
+        buyer_mobile = #{buyerMobile,jdbcType=VARCHAR},
+      </if>
+      <if test="productNum != null" >
+        product_num = #{productNum,jdbcType=INTEGER},
+      </if>
+      <if test="buyerCity != null" >
+        buyer_city = #{buyerCity,jdbcType=VARCHAR},
+      </if>
+      <if test="buyerProvince != null" >
+        "buyer_ province" = #{buyerProvince,jdbcType=VARCHAR},
+      </if>
+      <if test="county != null" >
+        county = #{county,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null" >
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.ssm.test.model.SeOrderDO" >
+    update se_order
+    set order_code = #{orderCode,jdbcType=VARCHAR},
+      product_code = #{productCode,jdbcType=VARCHAR},
+      buyer_name = #{buyerName,jdbcType=VARCHAR},
+      buyer_mobile = #{buyerMobile,jdbcType=VARCHAR},
+      product_num = #{productNum,jdbcType=INTEGER},
+      buyer_city = #{buyerCity,jdbcType=VARCHAR},
+      "buyer_ province" = #{buyerProvince,jdbcType=VARCHAR},
+      county = #{county,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

@@ -1,75 +1,54 @@
-let login = $.cookie("loginId");
-let funArray = [];
-$.ajax({
-    type: 'get',
-    url: nginx_url + '/selectFunc/' + login,
-    async: false,
-    dataType: 'json',
-    success: function (result) {
-        funArray = [];
-        $.each(result, function (i, item) {
-            funArray.push(item.functionId);
-        })
-    }
-});
-
-for (let i = 1; i <= 11; i++) {
-    if ($.inArray(i, funArray) == -1) {
-        $("#function_" + i).remove();
-    }
-}
-
-layui.use(['layer', 'form', 'element', 'jquery'], function() {
-    let element = layui.element,
-    $ = layui.jquery,
-    layer = layui.layer;
-    let mainLayout = $('#main-layout');
-    let former_id = -1;
-    element.on('nav(demo)', function(elem) {
-
-        let nav_a = $(elem[0]);
-
-        let id = nav_a.attr('data-id');
-        let url = nav_a.attr('data-url');
-        let text = nav_a.attr('data-text');
-
-        if (id === '7') {
-            let loginId = $.cookie('loginId');
-            let type = loginId.slice(0, 2);
-            if (type === 'KH') {
-                url = 'html/getGoodsControl/callback/customerCallback.html';
-            } else if (type === 'SJ') {
-                url = 'html/getGoodsControl/callback/driverCallback.html';
+layui.use(['element', 'layer', 'jquery'], function () {
+    var element = layui.element;
+    // var layer = layui.layer;
+    var $ = layui.$;
+    // 配置tab实践在下面无法获取到菜单元素
+    $('.site-demo-active').on('click', function () {
+        var dataid = $(this);
+        //这时会判断右侧.layui-tab-title属性下的有lay-id属性的li的数目，即已经打开的tab项数目
+        if ($(".layui-tab-title li[lay-id]").length &lt; 1) {
+            //如果比零小，则直接打开新的tab项
+            active.tabAdd(dataid.attr("data-url"), dataid.attr("data-id"), dataid.attr("data-title"));
+        } else {
+            //否则判断该tab项是否以及存在
+            var isData = false; //初始化一个标志，为false说明未打开该tab项 为true则说明已有
+            $.each($(".layui-tab-title li[lay-id]"), function () {
+                //如果点击左侧菜单栏所传入的id 在右侧tab项中的lay-id属性可以找到，则说明该tab项已经打开
+                if ($(this).attr("lay-id") == dataid.attr("data-id")) {
+                    isData = true;
+                }
+            })
+            if (isData == false) {
+                //标志为false 新增一个tab项
+                active.tabAdd(dataid.attr("data-url"), dataid.attr("data-id"), dataid.attr("data-title"));
             }
         }
-
-        if(!url) {
-            return;
-        }
-        if (former_id === -1) {
-            former_id = id;
-        }
-        let isActive = $('.main-layout-tab .layui-tab-title').find("li[lay-id=" + id + "]");
-        if(isActive.length > 0) {
-            //切换到选项卡
-            element.tabChange('tab', id);
-        } else {
-            element.tabDelete('tab', former_id);
-            former_id = id;
-            element.tabAdd('tab', {
-                title: text,
-                content: '<iframe src="' + url + '" id="' + id + '" name="iframe' + id + '" class="iframe" frameborder="0" data-id="' + id + '" scrolling="auto" height="100%" width="100%"></iframe>',
-                id: id
-            });
-            element.tabChange('tab', id);
-        }
-        mainLayout.removeClass('hide-side');
+        //最后不管是否新增tab，最后都转到要打开的选项页面上
+        active.tabChange(dataid.attr("data-id"));
     });
 
-    $("#username").append($.cookie("loginId"));
+    var active = {
+        //在这里给active绑定几项事件，后面可通过active调用这些事件
+        tabAdd: function (url, id, name) {
+            //新增一个Tab项 传入三个参数，分别对应其标题，tab页面的地址，还有一个规定的id，是标签中data-id的属性值
+            //关于tabAdd的方法所传入的参数可看layui的开发文档中基础方法部分
+            element.tabAdd('demo', {
+                title: name,
+                content: '<iframe data-frameid="' + id + '" scrolling="auto" frameborder="0" src="' + url + '" style="width:100%;height:99%;"></iframe>',
+                id: id //规定好的id
+            })
+            FrameWH();  //计算ifram层的大小
+        },
+        tabChange: function (id) {
+            //切换到指定Tab项
+            element.tabChange('demo', id); //根据传入的id传入到指定的tab项
+        },
+        tabDelete: function (id) {
+            element.tabDelete("demo", id);//删除
+        }
+    };
+    function FrameWH() {
+        var h = $(window).height();
+        $("iframe").css("height",h+"px");
+    }
 });
-
-function logout() {
-    $.cookie("loginId", null);
-    window.location.href = "login.html";
-}

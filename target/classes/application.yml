@@ -4,7 +4,7 @@ server:
 spring:
     datasource:
         name: test
-        url: jdbc:mysql://127.0.0.1:3306/mybase
+        url: jdbc:mysql://127.0.0.1:3306/mybase?useUnicode=true&characterEncoding=utf8
         username: root
         password: wulidan
         # 使用druid数据源
@@ -28,6 +28,7 @@ spring:
 mybatis:
   mapper-locations: classpath:mapping/*.xml  #注意：一定要对应mapper映射xml文件的所在路径
   type-aliases-package: com.pastry.pojo;  # 注意：对应实体类的路径
+
 
 #pagehelper分页插件
 pagehelper:
