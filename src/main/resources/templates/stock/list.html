@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
-    <title>用户信息</title>
+    <title>仓库信息</title>
     <link rel="stylesheet" href="/layui/css/layui.css?t=1554901098009" media="all"/>
 </head>
 <body>
@@ -41,7 +41,7 @@
         table.render({
             elem: '#demo'
             ,height: 530
-            ,url: '/baShop/listData' //数据接口
+            ,url: '/baWarehouse/listData' //数据接口
             ,title: '商家信息'
             ,page: true //开启分页
             ,toolbar: 'default' //开启工具栏，此处显示默认图标，可以自定义模板，详见文档
@@ -49,8 +49,8 @@
             ,cols: [[ //表头
                 {type: 'checkbox', fixed: 'left'}
                 ,{field: 'id', title: 'ID', width:70, sort: true, fixed: 'left'}
-                ,{field: 'shopCode', title: '商家编码', width:100}
-                ,{field: 'shopName', title: '商家名称', width: 150, sort: true}
+                ,{field: 'warehouseCode', title: '仓库编码', width:100}
+                ,{field: 'warehouseName', title: '仓库名称', width: 150, sort: true}
                 ,{field: 'province', title: '省', width:150}
                 ,{field: 'city', title: '市', width:200}
                 ,{field: 'county', title: '区', width:100}
