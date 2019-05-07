@@ -11,21 +11,21 @@ import java.util.List;
 public class ImProductServiceImpl implements ImProductService {
 
     @Resource
-    private ImProductMapper imProductMapper;
+    private ImProductDOMapper imProductDOMapper;
 
     @Override
     public PageResult<List<ImProduct>> getAll(int page, int limit) {
         PageResult pageResult = new PageResult();
         int startRow = (page - 1) * limit;
-        pageResult.setData(imProductMapper.getAll(startRow, limit));
-        pageResult.setCount(imProductMapper.getCount());
+        pageResult.setData(imProductDOMapper.getAll(startRow, limit));
+        pageResult.setCount(imProductDOMapper.getCount());
         return pageResult;
     }
 
     @Override
     public PageResult deleteBatch(List<Integer> ids) {
         PageResult pageResult = new PageResult();
-        int val = imProductMapper.deleteBatch(ids);
+        int val = imProductDOMapper.deleteBatch(ids);
         if(val == 0) {
             pageResult.setCode(1001);
             pageResult.setMsg("没有数据");
