@@ -11,7 +11,7 @@ public class ImInventoryController {
   
   @RequestMapping("/list")
   public String queryList(HttpServletRequest request, HttpServletResponse response) {
-      return "/delivery/list";
+      return "/inventory/list";
   }
   
    @ResponseBody
