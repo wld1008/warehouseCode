@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
-    <title>用户信息</title>
+    <title>库存信息</title>
     <link rel="stylesheet" href="/layui/css/layui.css?t=1554901098009" media="all"/>
 </head>
 <body>
@@ -49,11 +49,12 @@
             ,cols: [[ //表头
                 {type: 'checkbox', fixed: 'left'}
                 ,{field: 'id', title: 'ID', width:70, sort: true, fixed: 'left'}
-                ,{field: 'shopCode', title: '商家编码', width:100}
-                ,{field: 'shopName', title: '商家名称', width: 150, sort: true}
-                ,{field: 'province', title: '省', width:150}
-                ,{field: 'city', title: '市', width:200}
+                ,{field: 'shopCode', title: '门店名称', width:100}
+                ,{field: 'productCode', title: '商品名称', width: 150, sort: true}
+                ,{field: 'shopCode', title: '商家名称', width:150}
+                ,{field: 'warehouseCode', title: '所属仓库', width:200}
                 ,{field: 'productNum', title: '库存', width:100}
+                ,{field: 'productLockNum', title: '锁定库存', width:100}
                 ,{fixed: 'right', width: 165, align:'center', toolbar: '#barDemo'}
             ]]
         });
@@ -86,7 +87,7 @@
 
                             $.ajax({
                                 type: "post",
-                                url: "/user/delete",
+                                url: "/inventory/delete",
                                 dataType:'json',
                                 data: "ids="+ checkStatus.data[0].id,
                                 dataType: "json",
