@@ -12,7 +12,7 @@ public interface ImProductService {
      * 查询所有信息
      * @return
      */
-    PageResult<List<ImProduct>> getAll(int page, int limit);
+    PageResult<List<ImProductDO>> getAll(int page, int limit);
 
     /**
      * 根据ID批量删除
