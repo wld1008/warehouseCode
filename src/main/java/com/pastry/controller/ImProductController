@@ -16,7 +16,7 @@ public class ImProductController {
 
     @ResponseBody
     @RequestMapping("/listData")
-    public PageResult<List<ImProduct>> list(@RequestParam("page") int page, @RequestParam("limit") int limit) {
+    public PageResult<List<ImProductDO>> list(@RequestParam("page") int page, @RequestParam("limit") int limit) {
         return imProductService.getAll(page, limit);
     }
 
