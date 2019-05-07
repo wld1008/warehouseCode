@@ -1,6 +1,9 @@
 package com.pastry.mapping;
 
 import com.pastry.pojo.BaWarehouse;
+import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
 
 public interface BaWarehouseMapper {
     int deleteByPrimaryKey(Integer id);

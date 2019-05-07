@@ -1,3 +1,8 @@
+package com.pastry.service.impl;
+
+import com.pastry.mapping.ImProductDOMapper;
+import com.pastry.pojo.ImProductDO;
+import com.pastry.service.ImProductService;
 import com.pastry.utils.result.PageResult;
 import org.springframework.stereotype.Service;
 
@@ -14,7 +19,7 @@ public class ImProductServiceImpl implements ImProductService {
     private ImProductDOMapper imProductDOMapper;
 
     @Override
-    public PageResult<List<ImProduct>> getAll(int page, int limit) {
+    public PageResult<List<ImProductDO>> getAll(int page, int limit) {
         PageResult pageResult = new PageResult();
         int startRow = (page - 1) * limit;
         pageResult.setData(imProductDOMapper.getAll(startRow, limit));

@@ -1,13 +1,14 @@
+package com.pastry.service;
 
+import com.pastry.pojo.ImProductDO;
 import com.pastry.utils.result.PageResult;
 
 import java.util.List;
 
 /**
- * Created by wulidan on 19/5/6.
+ * Created by wulidan on 19/5/8.
  */
 public interface ImProductService {
-
     /**
      * 查询所有信息
      * @return

@@ -1,6 +1,9 @@
 package com.pastry.mapping;
 
 import com.pastry.pojo.ImommodityWarehouse;
+import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
 
 public interface ImommodityWarehouseMapper {
     int deleteByPrimaryKey(Integer id);

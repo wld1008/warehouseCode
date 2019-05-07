@@ -1,10 +1,19 @@
 package com.pastry.service.impl;
 
+import com.pastry.mapping.ImDeliveryTrackingMapper;
+import com.pastry.pojo.ImDeliveryTracking;
+import com.pastry.service.ImDeliveryTrackingService;
+import com.pastry.utils.result.PageResult;
+import org.springframework.stereotype.Service;
+
+import javax.annotation.Resource;
+import java.util.List;
+
 /**
  * Created by wulidan on 19/5/7.
  */
-@Sevice
-public class ImDeliveryTrackingServiceImpl {
+@Service
+public class ImDeliveryTrackingServiceImpl implements ImDeliveryTrackingService {
     @Resource
     private ImDeliveryTrackingMapper imDeliveryTrackingMapper;
 

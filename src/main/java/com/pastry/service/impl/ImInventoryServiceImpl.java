@@ -1,10 +1,19 @@
 package com.pastry.service.impl;
 
+import com.pastry.mapping.ImInventoryMapper;
+import com.pastry.pojo.ImInventory;
+import com.pastry.service.ImInventoryService;
+import com.pastry.utils.result.PageResult;
+import org.springframework.stereotype.Service;
+
+import javax.annotation.Resource;
+import java.util.List;
+
 /**
  * Created by wulidan on 19/5/7.
  */
 @Service
-public class ImInventoryServiceImpl {
+public class ImInventoryServiceImpl implements ImInventoryService {
   
     @Resource
     private ImInventoryMapper imInventoryMapper;

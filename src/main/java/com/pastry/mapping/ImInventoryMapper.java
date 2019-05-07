@@ -1,6 +1,9 @@
 package com.pastry.mapping;
 
 import com.pastry.pojo.ImInventory;
+import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
 
 public interface ImInventoryMapper {
     int deleteByPrimaryKey(Integer id);
