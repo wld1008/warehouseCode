@@ -128,4 +128,18 @@
       operate_id = #{operateId,jdbcType=INTEGER}
     where id = #{id,jdbcType=INTEGER}
   </update>
+   <select id="getAll" resultMap="BaseResultMap">
+    select  <include refid="Base_Column_List" />
+    from im_commodity_warehouse
+    limit #{start} , #{limit}
+  </select>
+  <select id="getCount" resultType="int">
+    select count(*) from im_commodity_warehouse
+  </select>
+  <delete id="deleteBatch" parameterType="Integer">
+    delete from im_commodity_warehouse where id in
+    <foreach collection ="ids" item="id"  open= "(" separator="," close =")">
+      #{id}
+    </foreach>
+  </delete>
 </mapper>
