@@ -26,7 +26,7 @@ public class BaWarehouseController {
   
   @RequestMapping("/list")
   public String queryList(HttpServletRequest request, HttpServletResponse response) {
-      return "/warehouse/list";
+      return "/stock/list";
   }
   
    @ResponseBody
