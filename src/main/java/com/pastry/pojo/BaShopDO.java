@@ -19,7 +19,10 @@ public class BaShopDO {
 
     private Date updateTime;
 
-    public BaShopDO(Integer id, String shopCode, String shopName, String province, String city, String county, Date createTime, Date updateTime) {
+    private Integer status;
+    private String statusDesc;
+
+    public BaShopDO(Integer id, String shopCode, String shopName, String province, String city, String county, Date createTime, Date updateTime,Integer status) {
         this.id = id;
         this.shopCode = shopCode;
         this.shopName = shopName;
@@ -28,6 +31,7 @@ public class BaShopDO {
         this.county = county;
         this.createTime = createTime;
         this.updateTime = updateTime;
+        this.status = status;
     }
 
     public BaShopDO() {
@@ -96,5 +100,21 @@ public class BaShopDO {
 
     public void setUpdateTime(Date updateTime) {
         this.updateTime = updateTime;
+    }
+
+    public Integer getStatus() {
+        return status;
+    }
+
+    public void setStatus(Integer status) {
+        this.status = status;
+    }
+
+    public String getStatusDesc() {
+        return statusDesc;
+    }
+
+    public void setStatusDesc(String statusDesc) {
+        this.statusDesc = statusDesc;
     }
 }

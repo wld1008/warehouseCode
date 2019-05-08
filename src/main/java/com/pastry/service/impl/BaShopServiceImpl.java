@@ -3,10 +3,13 @@ package com.pastry.service.impl;
 import com.pastry.mapping.BaShopDOMapper;
 import com.pastry.pojo.BaShopDO;
 import com.pastry.service.BaShopService;
+import com.pastry.utils.StatusEnum;
 import com.pastry.utils.result.PageResult;
 import org.springframework.stereotype.Service;
+import org.springframework.util.CollectionUtils;
 
 import javax.annotation.Resource;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -22,7 +25,15 @@ public class BaShopServiceImpl implements BaShopService {
     public PageResult<List<BaShopDO>> getAll(int page, int limit) {
         PageResult pageResult = new PageResult();
         int startRow = (page - 1) * limit;
-        pageResult.setData(baShopDOMapper.getAll(startRow, limit));
+        List<BaShopDO> shopDOList =  baShopDOMapper.getAll(startRow, limit);
+        List<BaShopDO> newShopDOList = new ArrayList<>();
+        if(!CollectionUtils.isEmpty(shopDOList)) {
+            for (BaShopDO baShopDO : shopDOList) {
+                baShopDO.setStatusDesc(StatusEnum.getDesc(baShopDO.getStatus()));
+                newShopDOList.add(baShopDO);
+            }
+        }
+        pageResult.setData(newShopDOList);
         pageResult.setCount(baShopDOMapper.getCount());
         return pageResult;
     }
