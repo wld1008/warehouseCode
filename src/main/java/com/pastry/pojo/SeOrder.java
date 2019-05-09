@@ -2,7 +2,7 @@ package com.pastry.pojo;
 
 import java.util.Date;
 
-public class SeOrderDO {
+public class SeOrder {
     private Integer id;
 
     private String orderCode;
@@ -25,7 +25,17 @@ public class SeOrderDO {
 
     private Date updateTime;
 
-    public SeOrderDO(Integer id, String orderCode, String productCode, String buyerName, String buyerMobile, Integer productNum, String buyerCity, String buyerProvince, String county, Date createTime, Date updateTime) {
+    private Integer orderStatus;
+
+    private String expressName;
+
+    private String expNumber;
+
+    private Date signInTime;
+
+    private String desc;
+
+    public SeOrder(Integer id, String orderCode, String productCode, String buyerName, String buyerMobile, Integer productNum, String buyerCity, String buyerProvince, String county, Date createTime, Date updateTime, Integer orderStatus, String expressName, String expNumber, Date signInTime) {
         this.id = id;
         this.orderCode = orderCode;
         this.productCode = productCode;
@@ -37,9 +47,14 @@ public class SeOrderDO {
         this.county = county;
         this.createTime = createTime;
         this.updateTime = updateTime;
+        this.orderStatus = orderStatus;
+        this.expressName = expressName;
+        this.expNumber = expNumber;
+        this.signInTime = signInTime;
+//        this.desc = desc;
     }
 
-    public SeOrderDO() {
+    public SeOrder() {
         super();
     }
 
@@ -129,5 +144,45 @@ public class SeOrderDO {
 
     public void setUpdateTime(Date updateTime) {
         this.updateTime = updateTime;
+    }
+
+    public Integer getOrderStatus() {
+        return orderStatus;
+    }
+
+    public void setOrderStatus(Integer orderStatus) {
+        this.orderStatus = orderStatus;
+    }
+
+    public String getExpressName() {
+        return expressName;
+    }
+
+    public void setExpressName(String expressName) {
+        this.expressName = expressName == null ? null : expressName.trim();
+    }
+
+    public String getExpNumber() {
+        return expNumber;
+    }
+
+    public void setExpNumber(String expNumber) {
+        this.expNumber = expNumber == null ? null : expNumber.trim();
+    }
+
+    public Date getSignInTime() {
+        return signInTime;
+    }
+
+    public void setSignInTime(Date signInTime) {
+        this.signInTime = signInTime;
+    }
+
+    public String getDesc() {
+        return desc;
+    }
+
+    public void setDesc(String desc) {
+        this.desc = desc;
     }
 }

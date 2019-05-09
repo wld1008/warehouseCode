@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.pastry.mapping.ImExpDistributionMapper" >
+  <resultMap id="BaseResultMap" type="com.pastry.pojo.ImExpDistribution" >
+    <constructor >
+      <idArg column="id" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="shop_code" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="warehouse_code" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="province" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="product_num" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="exp_code" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="exp_name" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="create_time" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+      <arg column="update_time" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, shop_code, warehouse_code, province, product_num, exp_code, exp_name, create_time, 
+    update_time
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from im_exp_distribution
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from im_exp_distribution
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.pastry.pojo.ImExpDistribution" >
+    insert into im_exp_distribution (id, shop_code, warehouse_code, 
+      province, product_num, exp_code, 
+      exp_name, create_time, update_time
+      )
+    values (#{id,jdbcType=INTEGER}, #{shopCode,jdbcType=VARCHAR}, #{warehouseCode,jdbcType=VARCHAR}, 
+      #{province,jdbcType=VARCHAR}, #{productNum,jdbcType=INTEGER}, #{expCode,jdbcType=VARCHAR}, 
+      #{expName,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.pastry.pojo.ImExpDistribution" >
+    insert into im_exp_distribution
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="shopCode != null" >
+        shop_code,
+      </if>
+      <if test="warehouseCode != null" >
+        warehouse_code,
+      </if>
+      <if test="province != null" >
+        province,
+      </if>
+      <if test="productNum != null" >
+        product_num,
+      </if>
+      <if test="expCode != null" >
+        exp_code,
+      </if>
+      <if test="expName != null" >
+        exp_name,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="updateTime != null" >
+        update_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="shopCode != null" >
+        #{shopCode,jdbcType=VARCHAR},
+      </if>
+      <if test="warehouseCode != null" >
+        #{warehouseCode,jdbcType=VARCHAR},
+      </if>
+      <if test="province != null" >
+        #{province,jdbcType=VARCHAR},
+      </if>
+      <if test="productNum != null" >
+        #{productNum,jdbcType=INTEGER},
+      </if>
+      <if test="expCode != null" >
+        #{expCode,jdbcType=VARCHAR},
+      </if>
+      <if test="expName != null" >
+        #{expName,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null" >
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.pastry.pojo.ImExpDistribution" >
+    update im_exp_distribution
+    <set >
+      <if test="shopCode != null" >
+        shop_code = #{shopCode,jdbcType=VARCHAR},
+      </if>
+      <if test="warehouseCode != null" >
+        warehouse_code = #{warehouseCode,jdbcType=VARCHAR},
+      </if>
+      <if test="province != null" >
+        province = #{province,jdbcType=VARCHAR},
+      </if>
+      <if test="productNum != null" >
+        product_num = #{productNum,jdbcType=INTEGER},
+      </if>
+      <if test="expCode != null" >
+        exp_code = #{expCode,jdbcType=VARCHAR},
+      </if>
+      <if test="expName != null" >
+        exp_name = #{expName,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null" >
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.pastry.pojo.ImExpDistribution" >
+    update im_exp_distribution
+    set shop_code = #{shopCode,jdbcType=VARCHAR},
+      warehouse_code = #{warehouseCode,jdbcType=VARCHAR},
+      province = #{province,jdbcType=VARCHAR},
+      product_num = #{productNum,jdbcType=INTEGER},
+      exp_code = #{expCode,jdbcType=VARCHAR},
+      exp_name = #{expName,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

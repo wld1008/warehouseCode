@@ -1,7 +1,7 @@
 package com.pastry.mapping;
 
 
-import com.pastry.pojo.SeOrderDO;
+import com.pastry.pojo.SeOrder;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
@@ -9,17 +9,17 @@ import java.util.List;
 public interface SeOrderDOMapper {
     int deleteByPrimaryKey(Integer id);
 
-    int insert(SeOrderDO record);
+    int insert(SeOrder record);
 
-    int insertSelective(SeOrderDO record);
+    int insertSelective(SeOrder record);
 
-    SeOrderDO selectByPrimaryKey(Integer id);
+    SeOrder selectByPrimaryKey(Integer id);
 
-    int updateByPrimaryKeySelective(SeOrderDO record);
+    int updateByPrimaryKeySelective(SeOrder record);
 
-    int updateByPrimaryKey(SeOrderDO record);
+    int updateByPrimaryKey(SeOrder record);
     
-      List<SeOrderDO> getAll(@Param("start") int start, @Param("limit") int limit);
+      List<SeOrder> getAll(@Param("start") int start, @Param("limit") int limit);
 
     /**
      * 根据ID删除数据

@@ -1,5 +1,6 @@
 package com.pastry.service;
 
+import com.pastry.pojo.SeOrder;
 import com.pastry.utils.result.PageResult;
 
 import java.util.List;
@@ -12,7 +13,7 @@ public interface SeOrderService {
      * 查询所有订单信息
      * @return
      */
-    PageResult<List<SeOrderService>> getAllOrder(int page, int limit);
+    PageResult<List<SeOrder>> getAllOrder(int page, int limit);
 
     /**
      * 根据ID批量删除用户信息

@@ -41,21 +41,24 @@
         table.render({
             elem: '#demo'
             ,height: 530
-            ,url: '/user/userList' //数据接口
-            ,title: '用户表'
+            ,url: '/order/listData' //数据接口
+            ,title: '订单表'
             ,page: true //开启分页
             ,toolbar: 'default' //开启工具栏，此处显示默认图标，可以自定义模板，详见文档
             ,totalRow: true //开启合计行
             ,cols: [[ //表头
                 {type: 'checkbox', fixed: 'left'}
                 ,{field: 'id', title: 'ID', width:70, sort: true, fixed: 'left'}
-                ,{field: 'userName', title: '用户名', width:150}
-                ,{field: 'password', title: '密码', width: 150, sort: true}
-                ,{field: 'email', title: '邮箱', width:200}
-                ,{field: 'mobile', title: '电话', width:200}
-                ,{field: 'age', title: '年龄', width:60}
-//                ,{field: 'sex', title: '性别', width:80, sort: true}
-                ,{fixed: 'right', width: 165, align:'center', toolbar: '#barDemo'}
+                ,{field: 'orderCode', title: '订单编码', width: 120, sort: true}
+                ,{field: 'productName', title: '商品名称', width:120}
+                ,{field: 'productNum', title: '商品数量', width:60}
+                ,{field: 'buyerName', title: '用户名', width:100}
+                ,{field: 'buyerMobile', title: '电话', width:100}
+                ,{field: 'buyerProvince', title: '省', width:120}
+                ,{field: 'buyerCity', title: '市', width:120}
+                ,{field: 'county', title: '区', width:120}
+                ,{field: 'desc', title: '订单状态', width:80, sort: true}
+                ,{fixed: 'right', width: 120, align:'center', toolbar: '#barDemo'}
             ]]
         });
 

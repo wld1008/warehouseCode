@@ -17,11 +17,11 @@
     </constructor>
   </resultMap>
   <sql id="Base_Column_List" >
-    id, order_code, product_code, buyer_name, buyer_mobile, product_num, buyer_city, 
+    id, order_code, product_code, buyer_name, buyer_mobile, product_num, buyer_city,
     "buyer_ province", county, create_time, update_time
   </sql>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
-    select 
+    select
     <include refid="Base_Column_List" />
     from se_order
     where id = #{id,jdbcType=INTEGER}
@@ -31,13 +31,13 @@
     where id = #{id,jdbcType=INTEGER}
   </delete>
   <insert id="insert" parameterType="com.pastry.pojo.SeOrderDO" >
-    insert into se_order (id, order_code, product_code, 
-      buyer_name, buyer_mobile, product_num, 
-      buyer_city, "buyer_ province", county, 
+    insert into se_order (id, order_code, product_code,
+      buyer_name, buyer_mobile, product_num,
+      buyer_city, "buyer_ province", county,
       create_time, update_time)
-    values (#{id,jdbcType=INTEGER}, #{orderCode,jdbcType=VARCHAR}, #{productCode,jdbcType=VARCHAR}, 
-      #{buyerName,jdbcType=VARCHAR}, #{buyerMobile,jdbcType=VARCHAR}, #{productNum,jdbcType=INTEGER}, 
-      #{buyerCity,jdbcType=VARCHAR}, #{buyerProvince,jdbcType=VARCHAR}, #{county,jdbcType=VARCHAR}, 
+    values (#{id,jdbcType=INTEGER}, #{orderCode,jdbcType=VARCHAR}, #{productCode,jdbcType=VARCHAR},
+      #{buyerName,jdbcType=VARCHAR}, #{buyerMobile,jdbcType=VARCHAR}, #{productNum,jdbcType=INTEGER},
+      #{buyerCity,jdbcType=VARCHAR}, #{buyerProvince,jdbcType=VARCHAR}, #{county,jdbcType=VARCHAR},
       #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP})
   </insert>
   <insert id="insertSelective" parameterType="com.pastry.pojo.SeOrderDO" >
