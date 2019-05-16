@@ -1,5 +1,6 @@
 package com.pastry.mapping;
 
+import com.pastry.pojo.BaShopDO;
 import com.pastry.pojo.BaWarehouse;
 import org.apache.ibatis.annotations.Param;
 
@@ -32,5 +33,12 @@ public interface BaWarehouseMapper {
      * @return
      */
     int getCount();
+
+    /**
+     * 根据仓库编码查询信息
+     * @param warehouseCode
+     * @return
+     */
+    BaWarehouse getByCode(@Param("warehouseCode") String warehouseCode);
 
 }

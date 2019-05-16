@@ -20,8 +20,12 @@ public class ImExpDistribution {
     private Date createTime;
 
     private Date updateTime;
+    private Integer productMinNum;
 
-    public ImExpDistribution(Integer id, String shopCode, String warehouseCode, String province, Integer productNum, String expCode, String expName, Date createTime, Date updateTime) {
+    private String shopName;
+    private String warehouseName;
+
+    public ImExpDistribution(Integer id, String shopCode, String warehouseCode, String province, Integer productNum, String expCode, String expName, Date createTime, Date updateTime, Integer productMinNum) {
         this.id = id;
         this.shopCode = shopCode;
         this.warehouseCode = warehouseCode;
@@ -31,6 +35,7 @@ public class ImExpDistribution {
         this.expName = expName;
         this.createTime = createTime;
         this.updateTime = updateTime;
+        this.productMinNum = productMinNum;
     }
 
     public ImExpDistribution() {
@@ -107,5 +112,29 @@ public class ImExpDistribution {
 
     public void setUpdateTime(Date updateTime) {
         this.updateTime = updateTime;
+    }
+
+    public String getShopName() {
+        return shopName;
+    }
+
+    public void setShopName(String shopName) {
+        this.shopName = shopName;
+    }
+
+    public String getWarehouseName() {
+        return warehouseName;
+    }
+
+    public void setWarehouseName(String warehouseName) {
+        this.warehouseName = warehouseName;
+    }
+
+    public Integer getProductMinNum() {
+        return productMinNum;
+    }
+
+    public void setProductMinNum(Integer productMinNum) {
+        this.productMinNum = productMinNum;
     }
 }

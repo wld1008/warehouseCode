@@ -7,10 +7,12 @@ public class PageResult <T> {
     private Integer code;
     private String msg;
     private Integer count;
+    private Boolean success;
     private T Data;
 
     public PageResult() {
         this.code = 0;
+        this.success = true;
     }
 
     public PageResult(Integer code, String msg) {
@@ -47,5 +49,13 @@ public class PageResult <T> {
 
     public void setData(T data) {
         Data = data;
+    }
+
+    public Boolean getSuccess() {
+        return success;
+    }
+
+    public void setSuccess(Boolean success) {
+        this.success = success;
     }
 }

@@ -35,6 +35,8 @@ public class SeOrder {
 
     private String desc;
 
+    private String productName;
+
     public SeOrder(Integer id, String orderCode, String productCode, String buyerName, String buyerMobile, Integer productNum, String buyerCity, String buyerProvince, String county, Date createTime, Date updateTime, Integer orderStatus, String expressName, String expNumber, Date signInTime) {
         this.id = id;
         this.orderCode = orderCode;
@@ -184,5 +186,13 @@ public class SeOrder {
 
     public void setDesc(String desc) {
         this.desc = desc;
+    }
+
+    public String getProductName() {
+        return productName;
+    }
+
+    public void setProductName(String productName) {
+        this.productName = productName;
     }
 }

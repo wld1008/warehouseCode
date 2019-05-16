@@ -21,6 +21,10 @@ public class ImInventory {
 
     private Integer status;
 
+    private String productName;
+    private String shopName;
+    private String warehouseName;
+
     public ImInventory(Integer id, String productCode, Integer productNum, Integer productLockNum, String shopCode, String warehouseCode, Date createTime, Date updateTime, Integer status) {
         this.id = id;
         this.productCode = productCode;
@@ -107,5 +111,29 @@ public class ImInventory {
 
     public void setStatus(Integer status) {
         this.status = status;
+    }
+
+    public String getProductName() {
+        return productName;
+    }
+
+    public void setProductName(String productName) {
+        this.productName = productName;
+    }
+
+    public String getShopName() {
+        return shopName;
+    }
+
+    public void setShopName(String shopName) {
+        this.shopName = shopName;
+    }
+
+    public String getWarehouseName() {
+        return warehouseName;
+    }
+
+    public void setWarehouseName(String warehouseName) {
+        this.warehouseName = warehouseName;
     }
 }

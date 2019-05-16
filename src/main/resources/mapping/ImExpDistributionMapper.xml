@@ -12,11 +12,12 @@
       <arg column="exp_name" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="create_time" jdbcType="TIMESTAMP" javaType="java.util.Date" />
       <arg column="update_time" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+      <arg column="product_min_num" jdbcType="INTEGER" javaType="java.lang.Integer" />
     </constructor>
   </resultMap>
   <sql id="Base_Column_List" >
     id, shop_code, warehouse_code, province, product_num, exp_code, exp_name, create_time, 
-    update_time
+    update_time,product_min_num
   </sql>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
@@ -31,11 +32,12 @@
   <insert id="insert" parameterType="com.pastry.pojo.ImExpDistribution" >
     insert into im_exp_distribution (id, shop_code, warehouse_code, 
       province, product_num, exp_code, 
-      exp_name, create_time, update_time
+      exp_name, create_time, update_time,product_min_num
       )
     values (#{id,jdbcType=INTEGER}, #{shopCode,jdbcType=VARCHAR}, #{warehouseCode,jdbcType=VARCHAR}, 
       #{province,jdbcType=VARCHAR}, #{productNum,jdbcType=INTEGER}, #{expCode,jdbcType=VARCHAR}, 
-      #{expName,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}
+      #{expName,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP},
+      #{productMinNum,jdbcType=INTEGER}
       )
   </insert>
   <insert id="insertSelective" parameterType="com.pastry.pojo.ImExpDistribution" >
@@ -68,6 +70,9 @@
       <if test="updateTime != null" >
         update_time,
       </if>
+      <if test="productMinNum != null" >
+        product_min_num,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -96,6 +101,9 @@
       </if>
       <if test="updateTime != null" >
         #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="productMinNum != null" >
+        #{productMinNum,jdbcType=TIMESTAMP},
       </if>
     </trim>
   </insert>
@@ -126,6 +134,9 @@
       <if test="updateTime != null" >
         update_time = #{updateTime,jdbcType=TIMESTAMP},
       </if>
+      <if test="productMinNum != null" >
+        product_min_num = #{productMinNum,jdbcType=TIMESTAMP},
+      </if>
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
@@ -138,7 +149,23 @@
       exp_code = #{expCode,jdbcType=VARCHAR},
       exp_name = #{expName,jdbcType=VARCHAR},
       create_time = #{createTime,jdbcType=TIMESTAMP},
-      update_time = #{updateTime,jdbcType=TIMESTAMP}
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      product_min_num = #{productMinNum,jdbcType=TIMESTAMP}
     where id = #{id,jdbcType=INTEGER}
   </update>
+
+  <select id="getAll" resultMap="BaseResultMap">
+    select  <include refid="Base_Column_List" />
+    from im_exp_distribution
+    limit #{start} , #{limit}
+  </select>
+  <select id="getCount" resultType="int">
+    select count(*) from im_exp_distribution
+  </select>
+  <delete id="deleteBatch" parameterType="Integer">
+    delete from im_exp_distribution where id in
+    <foreach collection ="ids" item="id"  open= "(" separator="," close =")">
+      #{id}
+    </foreach>
+  </delete>
 </mapper>

@@ -2,7 +2,7 @@ package com.pastry.pojo;
 
 import java.util.Date;
 
-public class ImommodityWarehouse {
+public class ImCommodityWarehouse {
     private Integer id;
 
     private String productCode;
@@ -19,7 +19,15 @@ public class ImommodityWarehouse {
 
     private Integer operateId;
 
-    public ImommodityWarehouse(Integer id, String productCode, String warehouseCode, String shopCode, Integer productNum, Date createTime, Date updateTime, Integer operateId) {
+    private Integer status;
+
+    private String productName;
+    private String warehouseName;
+    private String shopName;
+    private String operateName;
+    private String desc;
+
+    public ImCommodityWarehouse(Integer id, String productCode, String warehouseCode, String shopCode, Integer productNum, Date createTime, Date updateTime, Integer operateId, Integer status) {
         this.id = id;
         this.productCode = productCode;
         this.warehouseCode = warehouseCode;
@@ -28,9 +36,10 @@ public class ImommodityWarehouse {
         this.createTime = createTime;
         this.updateTime = updateTime;
         this.operateId = operateId;
+        this.status = status;
     }
 
-    public ImommodityWarehouse() {
+    public ImCommodityWarehouse() {
         super();
     }
 
@@ -96,5 +105,53 @@ public class ImommodityWarehouse {
 
     public void setOperateId(Integer operateId) {
         this.operateId = operateId;
+    }
+
+    public Integer getStatus() {
+        return status;
+    }
+
+    public void setStatus(Integer status) {
+        this.status = status;
+    }
+
+    public String getProductName() {
+        return productName;
+    }
+
+    public void setProductName(String productName) {
+        this.productName = productName;
+    }
+
+    public String getWarehouseName() {
+        return warehouseName;
+    }
+
+    public void setWarehouseName(String warehouseName) {
+        this.warehouseName = warehouseName;
+    }
+
+    public String getShopName() {
+        return shopName;
+    }
+
+    public void setShopName(String shopName) {
+        this.shopName = shopName;
+    }
+
+    public String getOperateName() {
+        return operateName;
+    }
+
+    public void setOperateName(String operateName) {
+        this.operateName = operateName;
+    }
+
+    public String getDesc() {
+        return desc;
+    }
+
+    public void setDesc(String desc) {
+        this.desc = desc;
     }
 }

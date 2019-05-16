@@ -19,7 +19,12 @@ public class WelcomController {
 
     @Resource
     private RedisTemplate<String,LoginUser> redisTemplate;
-
+//
+//    @RequestMapping("/login")
+//    public String login(HttpServletRequest request, HttpServletResponse response){
+//
+//        return "login";
+//    }
 
     @RequestMapping("/hello")
     public String home(HttpServletRequest request, HttpServletResponse response){

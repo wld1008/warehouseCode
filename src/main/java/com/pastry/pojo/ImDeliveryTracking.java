@@ -25,6 +25,10 @@ public class ImDeliveryTracking {
 
     private Date updateTime;
 
+    private String desc;
+
+    private String operateTime;
+
     public ImDeliveryTracking(Integer id, String expressCode, String expressName, String orderCode, String reachProvice, String reachCity, String reachCounty, String reachDetail, Integer status, Date createTime, Date updateTime) {
         this.id = id;
         this.expressCode = expressCode;
@@ -129,5 +133,21 @@ public class ImDeliveryTracking {
 
     public void setUpdateTime(Date updateTime) {
         this.updateTime = updateTime;
+    }
+
+    public String getDesc() {
+        return desc;
+    }
+
+    public void setDesc(String desc) {
+        this.desc = desc;
+    }
+
+    public String getOperateTime() {
+        return operateTime;
+    }
+
+    public void setOperateTime(String operateTime) {
+        this.operateTime = operateTime;
     }
 }

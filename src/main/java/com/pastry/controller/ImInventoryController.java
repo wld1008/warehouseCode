@@ -1,5 +1,6 @@
 package com.pastry.controller;
 
+import com.pastry.mapping.ImProductDOMapper;
 import com.pastry.pojo.ImInventory;
 import com.pastry.service.ImInventoryService;
 import com.pastry.utils.result.PageResult;
@@ -21,7 +22,7 @@ import java.util.List;
 public class ImInventoryController {
   @Resource
   private ImInventoryService imInventoryService;
-  
+
   @RequestMapping("/list")
   public String queryList(HttpServletRequest request, HttpServletResponse response) {
       return "/inventory/list";
@@ -30,6 +31,7 @@ public class ImInventoryController {
    @ResponseBody
    @RequestMapping("/listData")
    public PageResult<List<ImInventory>> list(@RequestParam("page") int page, @RequestParam("limit") int limit) {
+
       return imInventoryService.getAll(page, limit);
    }
 }

@@ -156,5 +156,10 @@
       #{id}
     </foreach>
   </delete>
-  
+
+  <select id="getByCode" resultMap="BaseResultMap" parameterType="java.lang.String">
+    select  <include refid="Base_Column_List" />
+    from ba_warehouse
+    where  warehouse_code = #{warehouseCode,jdbcType=VARCHAR}
+  </select>
 </mapper>

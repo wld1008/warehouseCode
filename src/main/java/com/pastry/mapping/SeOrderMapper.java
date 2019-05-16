@@ -6,7 +6,7 @@ import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
-public interface SeOrderDOMapper {
+public interface SeOrderMapper {
     int deleteByPrimaryKey(Integer id);
 
     int insert(SeOrder record);

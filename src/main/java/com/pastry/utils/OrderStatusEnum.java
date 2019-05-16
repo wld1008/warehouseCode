@@ -9,6 +9,7 @@ public enum OrderStatusEnum {
     EXP_SURE(200,"快递分配"),
     EXP_SEND(300,"发货"),
     EXP_DELIVERY(400,"派送中"),
+    DIS_ENABLE(900, "取消订单"),
     EXP_SIGN(500,"签收");
 
     private int code;
@@ -37,7 +38,7 @@ public enum OrderStatusEnum {
 
     // 普通方法
     public static String getDesc(int code) {
-        for (StatusEnum c : StatusEnum.values()) {
+        for (OrderStatusEnum c : OrderStatusEnum.values()) {
             if (c.getCode() == code) {
                 return c.getDesc();
             }

@@ -32,4 +32,11 @@ public interface ImProductDOMapper {
      * @return
      */
     int getCount();
+
+    /**
+     * 根据商品编码查询商品信息
+     * @param productCode
+     * @return
+     */
+    ImProductDO getByCode(@Param("productCode") String productCode);
 }

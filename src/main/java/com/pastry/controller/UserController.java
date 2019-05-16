@@ -25,6 +25,16 @@ public class UserController {
     @Resource
     private UserService userService;
 
+    @ResponseBody
+    @RequestMapping("/login")
+    public PageResult<List<UserDO>> userList(@RequestParam("username") String userName,
+                                             @RequestParam("password") String password) {
+        PageResult result = new PageResult<>();
+        result.setMsg("登录成功");
+        return result;
+    }
+
+
     @RequestMapping("/list")
     public String queryUser(HttpServletRequest request, HttpServletResponse response) {
 

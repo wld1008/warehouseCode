@@ -2,7 +2,7 @@ package com.pastry.mapping;
 
 
 import com.pastry.pojo.BaShopDO;
-import com.pastry.pojo.UserDO;
+import com.pastry.pojo.ImProductDO;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
@@ -36,4 +36,12 @@ public interface BaShopDOMapper {
      * @return
      */
     int getCount();
+
+
+    /**
+     * 根据门店编码查询信息
+     * @param shopCode
+     * @return
+     */
+    BaShopDO getByCode(@Param("shopCode") String shopCode);
 }
