@@ -50,5 +50,9 @@ public class SeOrderController {
         System.out.println(ids);
         return seOrderService.deleteOrderById(Arrays.asList(Integer.parseInt(ids)));
     }
-
+    
+    @RequestMapping("/save")
+    public PageResult save(@RequestBody SeOrder seOrder) {
+        return seOrderService.save(seOrder);
+    }
 }
