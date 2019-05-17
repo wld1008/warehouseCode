@@ -21,4 +21,6 @@ public interface ImInventoryService {
      * @return
      */
     PageResult deleteBatch(List<Integer> ids);
+   
+    PageResult save (ImInventory imInventory);
 }
