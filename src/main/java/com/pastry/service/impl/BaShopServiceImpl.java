@@ -48,4 +48,10 @@ public class BaShopServiceImpl implements BaShopService {
         }
         return pageResult;
     }
+    
+    @Override
+    public PageResult save(BaShopDO baShopDO) {
+        baShopDOMapper.insert(baShopDO);
+        return new PageResult();
+    }
 }
