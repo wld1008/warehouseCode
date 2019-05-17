@@ -22,4 +22,6 @@ public interface ImExpDistributionService {
      * @return
      */
     PageResult deleteBatch(List<Integer> ids);
+    
+    PageResult save (ImExpDistribution imExpDistribution);
 }
