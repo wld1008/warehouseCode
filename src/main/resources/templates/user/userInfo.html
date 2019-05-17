@@ -65,14 +65,21 @@
              ,data = checkStatus.data; //获取选中的数据
             switch(obj.event){
                 case 'add':
-                    layer.msg('添加');
-                    var oldData =  table.cache["demo"];
-                    var data1={"userName":"测试","password":"","email":"","mobile":"","age":0};
-                    oldData.push(data1);
-                    table.reload('demo',{
-                        data : oldData,
-                        count: oldData.size
-                    });
+//                    layer.msg('添加');
+//                    var oldData =  table.cache["demo"];
+//                    var data1={"userName":"测试","password":"","email":"","mobile":"","age":0};
+//                    oldData.push(data1);
+//                    table.reload('demo',{
+//                        data : oldData,
+//                        count: oldData.size
+//                    });
+                    var e = $(this),
+                            i = '/echo',
+                            t = 222;
+                    layui.router();
+                    //F.tabsPage.elem = e;
+                    var l = parent === self ? layui : top.layui;
+                    l.index.openTabsPage(i, t || e.text())
                     layer.msg('添加'+ data);
                     break;
                 case 'update':

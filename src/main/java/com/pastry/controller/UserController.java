@@ -52,17 +52,22 @@ public class UserController {
         return "/user/userDetail";
     }
 
-    @RequestMapping("/save")
-    public String save(UserDO userDO){
-
-        return "";
-    }
+//    @RequestMapping("/save")
+//    public String save(UserDO userDO){
+//
+//        return ;
+//    }
 
     @ResponseBody
     @RequestMapping("/delete")
     public PageResult delete(@RequestParam("ids") String ids) {
         System.out.println(ids);
         return userService.deleteUserById(Arrays.asList(Integer.parseInt(ids)));
+    }
+
+    @RequestMapping("/save")
+    public PageResult save(@RequestBody UserDO userDO) {
+        return userService.save(userDO);
     }
 
 }

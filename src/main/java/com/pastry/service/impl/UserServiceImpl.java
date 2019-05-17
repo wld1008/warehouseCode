@@ -51,17 +51,10 @@ public class UserServiceImpl  implements UserService {
         return pageResult;
     }
 
-    public static void main(String[] args) {
-//        String regex = "第[0-9]*条";
-        String str = "第9条";
-        System.out.println(str.replace(str.substring(1,str.length()),"**"));
-//        System.out.privatentln(str.repal);
-//        Pattern pat = Pattern.compile(regex);
-//        Matcher matcher = pat.matcher(str);
-//        while (matcher.find()) {
-//            String temp = str.substring(matcher.start(),matcher.end());
-//            str = str.replaceAll(temp, temp.substring(0,str.length())+"*");
-//        }
-//        System.out.println(str);
+    @Override
+    public PageResult save(UserDO userDO) {
+        userMapper.insert(userDO);
+        return new PageResult();
     }
+
 }

@@ -22,4 +22,6 @@ public interface UserService {
      * @return
      */
     PageResult deleteUserById(List<Integer> ids);
+
+    PageResult save (UserDO userDO);
 }
