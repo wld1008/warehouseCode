@@ -68,4 +68,10 @@ public class ImCommodityWarehouseServiceImpl implements ImCommodityWarehouseServ
         }
         return pageResult;
     }
+  
+  @Override
+    public PageResult save(ImCommodityWarehouse imCommodityWarehouse) {
+        imCommodityWarehouseMapper.insert(imCommodityWarehouse);
+        return new PageResult();
+    }
 }
