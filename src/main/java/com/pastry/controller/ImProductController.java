@@ -52,4 +52,9 @@ public class ImProductController {
         System.out.println(ids);
         return imProductService.deleteBatch(Arrays.asList(Integer.parseInt(ids)));
     }
+    
+    @RequestMapping("/save")
+    public PageResult save(@RequestBody ImProductDO imProductDO) {
+        return imProductService.save(userDO);
+    }
 }
