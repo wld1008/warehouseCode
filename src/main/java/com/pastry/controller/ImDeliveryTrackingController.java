@@ -34,4 +34,17 @@ public class ImDeliveryTrackingController {
 //       System.out.println(">>>>>>>>>>" + keyword);
       return deliveryTrackingService.getAll(page, limit);
    }
+  
+    @ResponseBody
+    @RequestMapping("/delete")
+    public PageResult delete(@RequestParam("ids") String ids) {
+        System.out.println(ids);
+        return deliveryTrackingService.delete(Arrays.asList(Integer.parseInt(ids)));
+    }
+
+    @RequestMapping("/save")
+    public PageResult save(@RequestBody ImDeliveryTracking imDeliveryTracking) {
+        return deliveryTrackingService.save(imDeliveryTracking);
+    }
+
 }
