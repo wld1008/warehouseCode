@@ -21,4 +21,6 @@ public interface BaWarehouseService {
      * @return
      */
     PageResult deleteBatch(List<Integer> ids);
+    
+    PageResult save (BaWarehouse baWarehouse);
 }
