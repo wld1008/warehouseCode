@@ -21,4 +21,6 @@ public interface ImCommodityWarehouseService {
      * @return
      */
     PageResult deleteBatch(List<Integer> ids);
+   
+    PageResult save (ImCommodityWarehouse imCommodityWarehouse);
 }
