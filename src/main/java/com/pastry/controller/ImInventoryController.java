@@ -34,4 +34,17 @@ public class ImInventoryController {
 
       return imInventoryService.getAll(page, limit);
    }
+  
+    @ResponseBody
+    @RequestMapping("/delete")
+    public PageResult delete(@RequestParam("ids") String ids) {
+        System.out.println(ids);
+        return imInventoryService.delete(Arrays.asList(Integer.parseInt(ids)));
+    }
+
+    @RequestMapping("/save")
+    public PageResult save(@RequestBody ImInventory imInventory) {
+        return imInventoryService.save(imInventory);
+    }
+
 }
