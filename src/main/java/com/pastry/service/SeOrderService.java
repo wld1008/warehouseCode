@@ -21,4 +21,6 @@ public interface SeOrderService {
      * @return
      */
     PageResult deleteOrderById(List<Integer> ids);
+    
+    PageResult save (SeOrder seOrder);
 }
