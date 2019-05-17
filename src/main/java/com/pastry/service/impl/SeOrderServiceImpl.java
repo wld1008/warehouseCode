@@ -49,4 +49,10 @@ public class SeOrderServiceImpl implements SeOrderService {
         seOrderDOMapper.deleteBatch(ids);
         return null;
     }
+    
+    @Override
+    public PageResult save(SeOrder seOrder) {
+        seOrderDOMapper.insert(userDO);
+        return new PageResult();
+    }
 }
