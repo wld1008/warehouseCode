@@ -5,6 +5,7 @@ import com.pastry.pojo.ImInventory;
 import com.pastry.service.ImInventoryService;
 import com.pastry.utils.result.PageResult;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -39,7 +41,7 @@ public class ImInventoryController {
     @RequestMapping("/delete")
     public PageResult delete(@RequestParam("ids") String ids) {
         System.out.println(ids);
-        return imInventoryService.delete(Arrays.asList(Integer.parseInt(ids)));
+        return imInventoryService.deleteBatch(Arrays.asList(Integer.parseInt(ids)));
     }
 
     @RequestMapping("/save")

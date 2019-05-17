@@ -6,9 +6,9 @@ package com.pastry.utils;
 public enum OrderStatusEnum {
 
     ENABLE(100, "启用"),
-    EXP_SURE(200,"快递分配"),
-    EXP_SEND(300,"发货"),
-    EXP_DELIVERY(400,"派送中"),
+    WAIT_EXP_SURE(200,"等待快递分配"),
+    WAIT_EXP_SEND(300,"等待发货"),
+    EXP_SEND(400,"已发货"),
     DIS_ENABLE(900, "取消订单"),
     EXP_SIGN(500,"签收");
 

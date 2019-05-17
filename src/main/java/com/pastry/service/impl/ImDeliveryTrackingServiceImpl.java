@@ -15,6 +15,7 @@ import java.util.List;
 
 /**
  * Created by wulidan on 19/5/7.
+ * 快递跟踪
  */
 @Service
 public class ImDeliveryTrackingServiceImpl implements ImDeliveryTrackingService {
@@ -40,6 +41,7 @@ public class ImDeliveryTrackingServiceImpl implements ImDeliveryTrackingService 
         pageResult.setCount(imDeliveryTrackingMapper.getCount());
         return pageResult;
     }
+
 
     @Override
     public PageResult deleteBatch(List<Integer> ids) {

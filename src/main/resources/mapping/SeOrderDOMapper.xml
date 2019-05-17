@@ -227,4 +227,10 @@
       #{id}
     </foreach>
   </delete>
+  
+  <select id="queryExpCode" resultMap="BaseResultMap">
+    select <include refid="Base_Column_List" />
+    from se_order
+    where order_status > 300  and order_status &lt; 400
+  </select>
 </mapper>

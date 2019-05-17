@@ -33,4 +33,10 @@ public interface SeOrderMapper {
      * @return
      */
     int getCount();
+
+    /**
+     * 查询已发货未签收的订单信息
+     * @return
+     */
+    List<SeOrder> queryExpCode();
 }

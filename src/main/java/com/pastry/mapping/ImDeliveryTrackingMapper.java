@@ -27,6 +27,7 @@ public interface ImDeliveryTrackingMapper {
      */
     int deleteBatch(@Param("ids") List<Integer> ids);
 
+    int insertBatch(@Param("deliverys") List<ImDeliveryTracking> deliverys);
     /**
      * 查询总数
      * @return

@@ -68,7 +68,7 @@ public class ImInventoryServiceImpl implements ImInventoryService {
   
   @Override
     public PageResult save(ImInventory imInventory) {
-        imInventoryMapper.insert(userDO);
+        imInventoryMapper.insert(imInventory);
         return new PageResult();
     }
 }

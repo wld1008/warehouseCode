@@ -16,6 +16,7 @@ public interface ImDeliveryTrackingService {
      */
     PageResult<List<ImDeliveryTracking>> getAll(int page, int limit);
 
+
     /**
      * 根据ID批量删除
      * @param ids

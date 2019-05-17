@@ -40,7 +40,7 @@ public class BaWarehouseServiceImpl implements BaWarehouseService{
   
     @Override
     public PageResult save(BaWarehouse baWarehouse) {
-        baWarehouseMapper.insert(userDO);
+        baWarehouseMapper.insert(baWarehouse);
         return new PageResult();
     }
 }

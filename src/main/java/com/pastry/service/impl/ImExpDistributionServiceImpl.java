@@ -62,7 +62,7 @@ public class ImExpDistributionServiceImpl implements ImExpDistributionService {
     
     @Override
     public PageResult save(ImExpDistribution imExpDistribution) {
-        imExpDistributionMapper.insert(userDO);
+        imExpDistributionMapper.insert(imExpDistribution);
         return new PageResult();
     }
 }

@@ -4,6 +4,7 @@ import com.pastry.pojo.ImProductDO;
 import com.pastry.service.ImProductService;
 import com.pastry.utils.result.PageResult;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -55,6 +56,6 @@ public class ImProductController {
     
     @RequestMapping("/save")
     public PageResult save(@RequestBody ImProductDO imProductDO) {
-        return imProductService.save(userDO);
+        return imProductService.save(imProductDO);
     }
 }
