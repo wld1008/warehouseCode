@@ -22,4 +22,6 @@ public interface BaShopService {
      * @return
      */
     PageResult deleteBatch(List<Integer> ids);
+    
+    PageResult save (BaShopDO baShopDO);
 }
