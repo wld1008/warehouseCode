@@ -35,4 +35,17 @@ public class BaWarehouseController {
       return baWarehouseService.getAll(page, limit);
    }
   
+    @ResponseBody
+    @RequestMapping("/delete")
+    public PageResult delete(@RequestParam("ids") String ids) {
+        System.out.println(ids);
+        return baWarehouseService.delete(Arrays.asList(Integer.parseInt(ids)));
+    }
+
+    @RequestMapping("/save")
+    public PageResult save(@RequestBody BaWarehouse baWarehouse) {
+        return baWarehouseService.save(baWarehouse);
+    }
+
+  
 }
