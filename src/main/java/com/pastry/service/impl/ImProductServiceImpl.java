@@ -37,4 +37,10 @@ public class ImProductServiceImpl implements ImProductService {
         }
         return pageResult;
     }
+    
+    @Override
+    public PageResult save(ImProductDO imProductDO) {
+        imProductDOMapper.insert(imProductDO);
+        return new PageResult();
+    }
 }
