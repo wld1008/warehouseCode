@@ -51,4 +51,10 @@ public class ImDeliveryTrackingServiceImpl implements ImDeliveryTrackingService 
         }
         return pageResult;
     }
+    
+    @Override
+    public PageResult save(ImDeliveryTracking imDeliveryTracking) {
+        imDeliveryTrackingMapper.insert(imDeliveryTracking);
+        return new PageResult();
+    }
 }
