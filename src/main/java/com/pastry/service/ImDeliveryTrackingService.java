@@ -22,4 +22,6 @@ public interface ImDeliveryTrackingService {
      * @return
      */
     PageResult deleteBatch(List<Integer> ids);
+  
+    PageResult save (ImDeliveryTracking imDeliveryTracking);
 }
