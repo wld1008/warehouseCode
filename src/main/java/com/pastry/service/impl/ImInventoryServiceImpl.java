@@ -65,4 +65,10 @@ public class ImInventoryServiceImpl implements ImInventoryService {
         }
         return pageResult;
     }
+  
+  @Override
+    public PageResult save(ImInventory imInventory) {
+        imInventoryMapper.insert(userDO);
+        return new PageResult();
+    }
 }
