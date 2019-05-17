@@ -32,4 +32,17 @@ public class ImCommodityWarehouseController {
    public PageResult<List<ImCommodityWarehouse>> list(@RequestParam("page") int page, @RequestParam("limit") int limit) {
       return imCommodityWarehouseService.getAll(page, limit);
    }
+  
+    @ResponseBody
+    @RequestMapping("/delete")
+    public PageResult delete(@RequestParam("ids") String ids) {
+        System.out.println(ids);
+        return imCommodityWarehouseService.delete(Arrays.asList(Integer.parseInt(ids)));
+    }
+
+    @RequestMapping("/save")
+    public PageResult save(@RequestBody ImCommodityWarehouse imCommodityWarehouse) {
+        return imCommodityWarehouseService.save(imCommodityWarehouse);
+    }
+
 }
