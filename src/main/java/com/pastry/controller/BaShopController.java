@@ -53,5 +53,10 @@ public class BaShopController {
         System.out.println(ids);
         return baShopService.deleteBatch(Arrays.asList(Integer.parseInt(ids)));
     }
-
+    
+    @RequestMapping("/save")
+    public PageResult save(@RequestBody BaShopDO baShopDO) {
+        return baShopService.save(baShopDO);
+    }
+    
 }
