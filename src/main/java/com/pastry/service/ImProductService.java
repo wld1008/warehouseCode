@@ -21,4 +21,6 @@ public interface ImProductService {
      * @return
      */
     PageResult deleteBatch(List<Integer> ids);
+    
+    PageResult save (ImProductDO imProductDO);
 }
