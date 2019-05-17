@@ -34,5 +34,17 @@ public class ImExpDistributionController {
     public PageResult<List<ImExpDistribution>> list(@RequestParam("page") int page, @RequestParam("limit") int limit) {
         return imExpDistributionService.getAll(page, limit);
     }
+    
+    @ResponseBody
+    @RequestMapping("/delete")
+    public PageResult delete(@RequestParam("ids") String ids) {
+        System.out.println(ids);
+        return imExpDistributionService.delete(Arrays.asList(Integer.parseInt(ids)));
+    }
+
+    @RequestMapping("/save")
+    public PageResult save(@RequestBody ImExpDistribution imExpDistribution) {
+        return imExpDistributionService.save(imExpDistribution);
+    }
 
 }
